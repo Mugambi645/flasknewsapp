@@ -10,7 +10,8 @@ class ProdConfig(Config):
     Args:
     Config:The parent configuration class with parent config settings
     """
-    pass
+    MOVIE_API_BASE_URL ="https://newsapi.org/v2/everything{}?&apiKey={}"
+
 
 class DevConfig(Config):
     """
@@ -19,4 +20,3 @@ class DevConfig(Config):
     Config: Parent configuration class 
     """
     DEBUG = True
-    
