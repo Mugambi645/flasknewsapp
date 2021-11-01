@@ -1,3 +1,3 @@
 from newsapi import NewsApiClient
 
-NEWS_API_KEY = "f7c9410ce12a4da69dfedd68719225c2"
+NEWS_API_KEY = "2e4192d282e346b2810a522f709ee0c9"
