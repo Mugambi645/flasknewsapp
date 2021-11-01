@@ -30,6 +30,8 @@ To fix a bug or enhance an existing module, follow these steps:
 If you find a bug (the website couldn't handle the query and or gave undesired results), kindly open an issue here by including your search query and the expected result.
 
 If you'd like to request a new function, feel free to do so by opening an issue here. Please include sample queries and their corresponding results.
+# Live version
+- [Live version](https://flasknewsapp.herokuapp.com/)
 ### Licence
 You can use this application for personal use only.
 
