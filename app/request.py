@@ -23,14 +23,21 @@ def process_results(news_list):
         id = news_item.get("id")
         name = news_item.get("name")
         url = news_item.get("url")
+        description = news_item.get("description")
+        country = news_item.get("country")
+        urlToImage = news_item.get("urlToImage")
         #overview = news_item.get("overview")
         #poster = news_item.get("poster_path")
 
         if url:
-            news_object = News(id,name, url)
+            news_object = News(id,name, url, description, country, urlToImage)
             news_results.append(news_object)
     
     return news_results
+
+
+
+    
 
 
 def get_news(category):
@@ -51,3 +58,17 @@ def get_news(category):
     return news_results
 
 
+def search_article(article_name):
+    search_article_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'.format(apiKey, article_name)
+    with urllib.request.urlopen(search_article_url) as url:
+        search_article_data = url.read()
+        search_article_response = json.loads(search_article_data)
+
+        search_article_results = None
+
+        if search_article_response['results']:
+            search_article_list = search_article_response['results']
+            search_article_results = process_results(search_article_list)
+
+
+    return search_article_results
