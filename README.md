@@ -1,4 +1,4 @@
-# flasknewsapp
+# flask news app
 ## Introduction
  This is a flask news app that generates news using the newsapi.The user can view latest stories from different sources.
 ## Languages and Technologies used
