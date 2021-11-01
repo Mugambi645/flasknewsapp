@@ -1,7 +1,6 @@
 certifi==2021.10.8
 charset-normalizer==2.0.7
 click==7.1.2
-dataclasses==0.8
 dominate==2.6.0
 Flask==1.1.4
 Flask-Bootstrap==3.3.7.1
