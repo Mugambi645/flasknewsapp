@@ -6,22 +6,33 @@
 <!-- Content block -->
 {% block content %}
 <div class="container">
+    <div class="row">
+      <div class="col">
+    {% include 'sidebar.html' %}
+    </div>
+
+    <br><br><br>
+    <div class="card mb-3 box" style="max-width: 640px; margin:auto;">
     <form class="text-center">
-        <input type="text" name="news_query" placeholder="Search for an article" class="form-control"><br>
+        <input type="text" name="news_query" style="margin-bottom: 1rem;" placeholder="Search for an article" class="form-control">
         <input type="submit"  value="Submit" class="btn btn-primary">
     </form>
-
+    <h3 class="news-header">Today</h3>
+    <hr>
 </div>
 
             <!-- general news section-->
-            <div class="container">
-                <div class="row">       
-    <h3 class="news-header">Today</h3>
-    <hr>
+                 
+    
     <p>
         {{ macro.displayNewsList (general) }}
     </p>  
     
 </div>
+<style>
+    #articles-container{
+    margin-left: 250px;
+}
+</style>
 
     {% endblock%}
