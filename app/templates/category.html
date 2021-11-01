@@ -1,0 +1,38 @@
+{%  extends 'base.html'  %}
+
+{% block styles %}
+         {{ super() }}
+         <link rel="stylesheet" href="{{url_for('static', filename='articles.css')}}" >
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid" >
+    <div class="row" >
+                            {% for category in category %}
+                            <div class="col-md-4" >
+                                <div class="card border-danger mb-3" >
+                                    <div class="card-header" >
+                                        <h4 class="title">
+                                            {{category.title}}
+                                        </h4> 
+                                    </div>
+                                    <hr>
+                                    <div class="card-body text-danger">
+                                      <p class="desc">{{category.description}}</p>
+                                      <a href="{{category.url}}" class="btn btn-primary" target="_blank" style="font-style: italic;">Read Full Article</a>
+                                      <div style="margin-top: 5px;">
+                                        <img src="{{category.urlToImage}}" class="img-responsive" alt="" style="height: 120px; ">
+                                      </div>
+                                      <hr>
+                                      <p class="card-text"><small class="text-muted">Posted:
+                                        {{ category.publishedAt }}</small></p>
+                                    </div>
+                                  </div>
+                            </div>
+                            {% endfor %}  
+                            
+                        </div>
+                    </div>
+
+                    
+{% endblock%}

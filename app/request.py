@@ -110,3 +110,38 @@ def process_articles(articles_list):
                 articles_results.append(articles_object)
             
     return articles_results
+
+
+def get_headlines():
+    '''
+    Function that gets news source articles headlines
+    '''
+    get_headlines_url = 'https://newsapi.org/v2/top-headlines?country=us&sortBy=publishedAt&apiKey={}'.format(api_key)
+
+    with urllib.request.urlopen(get_headlines_url) as url:
+        get_headlines_data = url.read()
+        get_headlines_response = json.loads(get_headlines_data)
+
+        get_headlines_object = None
+        if get_headlines_response['articles']:
+            get_headlines_list = get_headlines_response['articles']
+            get_headlines_object = process_articles(get_headlines_list)
+
+    return get_headlines_object
+
+def get_category(tab):
+    '''
+    Function that gets news source articles headlines by category
+    '''
+    get_category_url = 'https://newsapi.org/v2/top-headlines?country=us&category={}&sortBy=publishedAt&apiKey={}'.format(tab,api_key)
+
+    with urllib.request.urlopen(get_category_url) as url:
+        get_category_data = url.read()
+        get_category_response = json.loads(get_category_data)
+
+        get_category_object = None
+        if get_category_response['articles']:
+            get_category_list = get_category_response['articles']
+            get_category_object = process_articles(get_category_list)
+
+    return get_category_object

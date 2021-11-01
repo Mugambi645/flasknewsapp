@@ -1,7 +1,7 @@
 
 
 from flask import render_template,request,redirect,url_for
-from .request import get_news,search_article,get_news_articles
+from .request import get_news,search_article,get_news_articles,get_category
 from app import app
 #views
 @app.route("/")
@@ -23,7 +23,7 @@ def index():
     if search_article:
         return redirect(url_for('search', article_name=search_article))
     else:
-        return render_template("index.html", general = general_news, sport = sports_news, entertainment_news = entertainment_news, health_news = health_news, business_news = business_news, tech_news = tech_news, science_news = science_news)
+        return render_template("index.html", general = general_news, sport = sports_news, entertainment = entertainment_news, health = health_news, business = business_news, tech = tech_news, science = science_news)
 
 
 
@@ -45,3 +45,14 @@ def search(article_name):
     title = f'search results for {article_name}'
     return render_template('search.html',article = searched_articles)
    
+
+
+@app.route('/category/<tab>')
+def category(tab):
+    '''
+    Category page function that returns the category page and its data
+    '''
+
+    source_news = get_news(tab)
+    category = get_category(tab)
+    return render_template('category.html',news = source_news , category = category)
