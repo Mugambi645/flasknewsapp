@@ -60,21 +60,6 @@ def get_news(category):
     return news_results
 
 
-def search_article(article_name):
-    search_article_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'.format(api_key, article_name)
-    with urllib.request.urlopen(search_article_url) as url:
-        search_article_data = url.read()
-        search_article_response = json.loads(search_article_data)
-
-        search_article_results = None
-
-        if search_article_response['results']:
-            search_article_list = search_article_response['results']
-            search_article_results = process_results(search_article_list)
-
-
-    return search_article_results
-
 
 
 def get_news_articles(id):
