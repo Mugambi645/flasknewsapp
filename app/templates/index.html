@@ -1,14 +1,27 @@
-<h1>Hello page to test if my view is working</h1>
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+<!-- Styles block -->
 
 
-<body>
-        <!-- general section  -->
-        <h3>General news</h3>
-         <ul>
-            {% for general_news in general %}
-                <li>{{ general_news.name}}</li>
-            {% endfor %}
-        </ul>
-   
- </body>
- 
+<!-- Content block -->
+{% block content %}
+<div class="container">
+    <form class="text-center">
+        <input type="text" name="news_query" placeholder="Search for an article" class="form-control"><br>
+        <input type="submit"  value="Submit" class="btn btn-primary">
+    </form>
+
+</div>
+
+            <!-- general news section-->
+            <div class="container">
+                <div class="row">       
+    <h3 class="news-header">Today</h3>
+    <hr>
+    <p>
+        {{ macro.displayNewsList (general) }}
+    </p>  
+    
+</div>
+
+    {% endblock%}

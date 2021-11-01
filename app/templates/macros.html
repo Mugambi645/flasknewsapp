@@ -1,1 +1,23 @@
 
+{%  extends 'base.html'  %}
+
+{% macro displayNewsList(news_list) %}
+
+<div class="container">
+    <div class="row">
+        {% for news in news_list %}
+        <div class="col-md-2">
+            <div class="thumbnail">
+                <h4 class="text-center" style="font-weight: bold; ">{{news.name}}</h4>
+                <div class="details">
+                        <p class="news-button text-center" >{{news.description | truncate(100)}}</p>
+                        <p ><a href="/articles/{{news.id}}" target="_blank" class="btn btn-primary text-center">View News</a></p>
+                </div>
+        </div>
+        </div>
+        {% endfor%}
+    </div>
+
+</div>
+    
+{% endmacro %}
