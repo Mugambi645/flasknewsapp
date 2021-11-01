@@ -1,1 +1,13 @@
 <h1>Hello page to test if my view is working</h1>
+
+
+<body>
+        <!-- Popular movie section  -->
+        <h3>General news</h3>
+         <ul>
+            {% for general_news in general %}
+                <li>{{ general_news.name}}</li>
+            {% endfor %}
+        </ul>
+ </body>
+ 
