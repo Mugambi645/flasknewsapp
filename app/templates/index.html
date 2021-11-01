@@ -26,8 +26,26 @@
     
     <p>
         {{ macro.displayNewsList (general) }}
+        
     </p>  
-    
+    <hr>
+    <h3 class="news-header text-center">Sports news today</h3>
+    <hr>
+    <p>
+        {{ macro.displayNewsList (sports) }} 
+    </p>
+    <hr>
+    <h3 class="news-header text-center">Technology news today</h3>
+    <hr>
+    <p>
+        {{ macro.displayNewsList (Technology) }} 
+    </p>
+    <hr>
+    <h3 class="news-header text-center">Sports news today</h3>
+    <hr>
+    <p>
+        {{ macro.displayNewsList (Business) }} 
+    </p>
 </div>
 <style>
     #articles-container{

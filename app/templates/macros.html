@@ -11,12 +11,13 @@
                 <div class="card-body">
                     <h5 class="card-title"><a href="{{news.url}}" target="_blanck">{{news.title}}</a></h5>
                     <p class="card-text">{{news.description}}</p>
-                    <p class="card-text"><small class="text-muted">{{news.id}}</small></p>
-                </div>
+                    <center><p><a href="/articles/{{news.id}}" target="_blank" class="btn btn-primary text-center">View more</a></p></center>
+                  </div>
             </div>
-
+{% endfor %}
+{% for article in articles %}
             <div class="col-md-4 img-box">
-                <img src="{{news.urlToImage}}" class="card-img" alt="..." height="100%">
+                <img src="{{article.urlToImage}}" class="card-img" alt="..." height="100%">
             </div>
         </div>
     </div>
