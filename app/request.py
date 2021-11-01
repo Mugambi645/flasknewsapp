@@ -1,16 +1,23 @@
 from os import name
-from app import app
+
 import urllib.request,json
 from newsapi import NewsApiClient
-from .models import news
-from .models.news import Articles
-News = news.News
+from .models import News
+from .models import Articles
 
-#getting api key
-api_key = app.config["NEWS_API_KEY"]
-articles_url = app.config["ARTICLES_URL"]
-#getting the news base url
-base_url = app.config["NEWS_API_BASE_URL"]
+# Getting api key
+api_key = None
+# Getting the news base url
+base_url = None
+# getting articles url
+articles_url = None
+
+def configure_request(app):
+    global api_key, base_url, articles_url
+    api_key = 'e792c982d14e425ebc7b4239ec0c8572'
+    base_url = app.config['NEWS_API_BASE_URL']
+    articles_url =  app.config['ARTICLES_URL']
+
 
 def process_results(news_list):
     """

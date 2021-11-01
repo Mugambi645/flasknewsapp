@@ -1,10 +1,10 @@
 
 
 from flask import render_template,request,redirect,url_for
-from .request import get_news,get_news_articles,get_category
-from app import app
+from . import main
+from ..request import get_news,get_news_articles,get_category
 #views
-@app.route("/")
+@main.route("/")
 def index():
     """
     View root page that returns the index page and its data
@@ -27,7 +27,7 @@ def index():
 
 
 
-@app.route('/articles/<id>')
+@main.route('/articles/<id>')
 def articles(id):
     '''
     View article function that returns the articles in a source
@@ -36,7 +36,7 @@ def articles(id):
     return render_template('articles.html', id = id, articles = articles)
 
 
-@app.route('/category/<tab>')
+@main.route('/category/<tab>')
 def category(tab):
     '''
     Category page function that returns the category page and its data
